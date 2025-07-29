@@ -4,7 +4,6 @@ const Sidebar = () => {
   const location = useLocation()
 
   const menuItems = [
-    { name: 'Dashboard', path: '/dashboard', icon: '📊' },
     { name: 'Citas', path: '/citas', icon: '📅' },
     { name: 'Pacientes', path: '/pacientes', icon: '👥' }
   ]

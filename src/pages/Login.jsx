@@ -16,7 +16,7 @@ const Login = () => {
     setError(null)
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email,
         password
       })
@@ -24,10 +24,10 @@ const Login = () => {
       if (error) {
         setError(error.message)
       } else {
-        // Redirigir al dashboard después del login exitoso
-        navigate('/dashboard')
+        // Redirigir a citas después del login exitoso
+        navigate('/citas')
       }
-    } catch (err) {
+    } catch {
       setError('Error inesperado. Inténtalo de nuevo.')
     } finally {
       setLoading(false)
@@ -42,14 +42,14 @@ const Login = () => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/dashboard`
+          redirectTo: `${window.location.origin}/citas`
         }
       })
 
       if (error) {
         setError(error.message)
       }
-    } catch (err) {
+    } catch {
       setError('Error al iniciar sesión con Google.')
     } finally {
       setLoading(false)
