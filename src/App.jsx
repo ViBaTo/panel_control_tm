@@ -7,6 +7,7 @@ import {
 import Layout from './ui/Layout'
 import Citas from './pages/Citas'
 import Pacientes from './pages/Pacientes'
+import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import ForgotPassword from './pages/ForgotPassword'
@@ -32,7 +33,8 @@ function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<Navigate to='/citas' replace />} />
+          <Route index element={<Navigate to='/dashboard' replace />} />
+          <Route path='dashboard' element={<Dashboard />} />
           <Route path='citas' element={<Citas />} />
           <Route path='pacientes' element={<Pacientes />} />
         </Route>
